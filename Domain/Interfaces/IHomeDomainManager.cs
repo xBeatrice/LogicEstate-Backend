@@ -8,7 +8,9 @@ namespace LogicEstate.Domain.Interfaces
 {
     public interface IHomeDomainManager
     {
-        HomeEntity CreateHome(HomeModel homeModel);
+        HomeEntity CreateHome(HomeModel createHomeModel);
+
+        HomeEntity UpdateHome(HomeEntity home, HomeModel editHomeModel);
     }
 
 }

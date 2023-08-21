@@ -17,6 +17,6 @@ namespace LogicEstate.Core.Interfaces
 
         Task<HomeEntity> EditAsync(int id, HomeModel homeModel);
 
-        Task<HomeEntity> DeleteAsync(int id);
+        Task DeleteAsync(int id);
     }
 }

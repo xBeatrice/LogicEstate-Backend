@@ -37,37 +37,30 @@ namespace LogicEstate.Core
             return await db.Homes.FindAsync(id);
         }
 
-        public async Task<HomeEntity> EditAsync(int id, HomeModel editModel)
+        public async Task<HomeEntity> EditAsync(int id, HomeModel updateHomeModel)
         {
             var home = await db.Homes.FindAsync(id);
 
-            if (home != null)
+            if (home == null)
             {
-                var updatedHome = homesManager.CreateHome(editModel);
-
-                home.Title = updatedHome.Title;
-                home.Description = updatedHome.Description;
-                home.Images = updatedHome.Images;
-                home.Latitude = updatedHome.Latitude;
-                home.Longitude = updatedHome.Longitude;
-                home.City = updatedHome.City;
-                home.Price = updatedHome.Price;
-                home.NumberOfRooms = updatedHome.NumberOfRooms;
-                home.SurfaceSquareMeters = updatedHome.SurfaceSquareMeters;
-
-                await db.SaveChangesAsync();
+                throw new Exception("Home not found.");
             }
 
-            return home;
+            var updatedHome = homesManager.UpdateHome(home, updateHomeModel);
+
+            await db.SaveChangesAsync();
+
+            return updatedHome;
         }
 
 
-        public async Task<HomeEntity> DeleteAsync ( int id)
+        public async Task DeleteAsync ( int id)
         {
             HomeEntity homeModel = db.Homes.Find(id);
+
             db.Homes.Remove(homeModel);
+
             await db.SaveChangesAsync();
-            return homeModel;
         }
     }
 }

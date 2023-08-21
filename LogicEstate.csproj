@@ -150,7 +150,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomesController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Core\HomesManager.cs" />
     <Compile Include="Core\Interfaces\IHomesManager.cs" />
     <Compile Include="Data\AppDbContext.cs" />

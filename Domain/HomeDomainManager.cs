@@ -25,5 +25,20 @@ namespace LogicEstate.Domain
                 SurfaceSquareMeters = homeModel.SurfaceSquareMeters
             };
         }
+
+        public HomeEntity UpdateHome(HomeEntity home, HomeModel homeModel)
+        {
+            home.Title = homeModel.Title;
+            home.Description = homeModel.Description;
+            home.Images = homeModel.Images;
+            home.Latitude = homeModel.Latitude;
+            home.Longitude = homeModel.Longitude;
+            home.City = homeModel.City;
+            home.Price = homeModel.Price;
+            home.NumberOfRooms = homeModel.NumberOfRooms;
+            home.SurfaceSquareMeters = homeModel.SurfaceSquareMeters;
+
+            return home;
+        }
     }
 }
