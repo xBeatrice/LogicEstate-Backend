@@ -48,9 +48,9 @@ namespace LogicEstate.Controllers
 
         // DELETE: Homes/Delete/5
         [HttpGet]
-        public async Task<HomeEntity> Delete(int id)
+        public async Task Delete(int id)
         {
-            return await homesManager.DeleteAsync(id);
+             await homesManager.DeleteAsync(id);
         }
     }
 }
